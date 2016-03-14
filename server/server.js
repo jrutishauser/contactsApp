@@ -13,16 +13,20 @@ var knex =  require('knex')({
 var bookshelf = require('bookshelf')(knex);
 
 var Contact = bookshelf.Model.extend({
-	tableName: 'contacts'	
+	tableName: 'contacts'
 })
-
 server.route({
 	method: 'GET',
 	path: '/api/contacts',
 	handler: function(request, reply){
 		Contact.fetchAll().then(function(contacts){
-			reply('{"contacts:" '+ JSON.stringify(contacts) + '}');	
+			//reply(JSON.stringify(contacts));
+			reply({data: contacts});
+
 		});
+	},
+	config:{
+		cors:true
 	}
 })
 
@@ -32,8 +36,9 @@ server.route({
 	path: '/api/contact/{id}',
 	handler: function(request, reply){
 			new Contact({id:request.params.id}).fetch().then(function(contact){
-			reply('{"contact:" '+ JSON.stringify(contact) + '}');	
-		});
+			reply(JSON.stringify(contact));
+
+			});
 	}
 })
 
