@@ -19,10 +19,13 @@ server.route({
 	method: 'GET',
 	path: '/api/contacts',
 	handler: function(request, reply){
-		Contact.fetchAll().then(function(contacts){
+		Contact.fetchAll().then(function(list){
 			//reply(JSON.stringify(contacts));
-			reply({data: contacts});
-
+            //reply(JSON.stringify(contacts));
+            var contacts = list.map(function (contact) {
+                return contact.attributes;
+            });
+            reply({contacts})
 		});
 	},
 	config:{

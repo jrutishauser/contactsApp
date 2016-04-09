@@ -1,6 +1,6 @@
 <ul>
-  {{#each model as person}}
-      <li>{{person.id}}</li>
+  {{#each model as |person|}}
+      <li>{{person.first_name}} {{person.last_name}}</li>
   {{/each}}
 </ul>
 

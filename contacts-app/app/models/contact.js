@@ -1,17 +1,17 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  firstName: DS.attr('string'),
-  lastName: DS.attr('string'),
-  middleInitial: DS.attr('string'),
+  first_name: DS.attr('string'),
+  last_name: DS.attr('string'),
+  middle_initial: DS.attr('string'),
   title: DS.attr('string'),
-  phoneNumber: DS.attr('string'),
+  phone_number: DS.attr('string'),
   email: DS.attr('string'),
-  streetAddress: DS.attr('string'),
+  street_address: DS.attr('string'),
   city: DS.attr('string'),
   state: DS.attr('string'),
-  zipCode: DS.attr('string'),
+  zip_code: DS.attr('string'),
   type: DS.attr('string'),
-  createdAt: DS.attr('date'),
-  updatedAt: DS.attr('date')
+  created_at: DS.attr('date'),
+  updated_at: DS.attr('date')
 });
